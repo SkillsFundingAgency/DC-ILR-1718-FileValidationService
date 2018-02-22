@@ -60,5 +60,26 @@ namespace DC.ILR.FileValidationService.Rules.Tests.Query
             var service = new IlrFileNameQueryService();
             service.IsValidFileName(fileName).Should().BeTrue();
         }
+
+        [Theory]
+        [InlineData("ILR-10000532-1718-20180128-100358-10.XYZ")]
+        [InlineData("ILR-0000000-0000-20180128-100358-10.zip")]
+        [InlineData("ILR-0000000-0000-20180128-100358-0.xml")]
+        [InlineData("ILR-10000532-1718-XYZ-100358-10.xml")]
+        [InlineData("ILR-11111111111.xml")]
+        public void GetUkprn_InvalidFileName(String fileName)
+        {
+            var service = new IlrFileNameQueryService();
+            service.GetUkprn(fileName).Should().Be(0);
+        }
+
+        [Theory]
+        [InlineData("ILR-10000532-1718-20180128-100358-10.xml")]
+        [InlineData("ILR-10000532-1718-20180128-100358-10.zip")]
+        public void GetUkprn_ValidFileName(string fileName)
+        {
+            var service = new IlrFileNameQueryService();
+            service.GetUkprn(fileName).Should().Be(10000532);
+        }
     }
 }

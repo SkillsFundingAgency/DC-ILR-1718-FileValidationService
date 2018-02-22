@@ -1,14 +1,15 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DC.ILR.1718.FileValidationService.Rules")]
+[assembly: AssemblyTitle("DC.ILR.FileValidationService.FileProcessor")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DC.ILR.1718.FileValidationService.Rules")]
+[assembly: AssemblyProduct("DC.ILR.FileValidationService.FileProcessor")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e3f5ada0-9c25-400d-8057-bca1c02daf2d")]
+[assembly: Guid("bd9ca9f4-d381-4e23-a80f-a5757eaa27cb")]
 
 // Version information for an assembly consists of the following four values:
 //

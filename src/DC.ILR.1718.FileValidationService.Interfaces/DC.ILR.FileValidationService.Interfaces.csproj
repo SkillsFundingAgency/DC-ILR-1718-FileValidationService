@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ESFA.DC.ILR.Model.Interface">
+      <HintPath>..\..\..\DC-ILR-1718-ValidationService\src\ESFA.DC.ILR.ValidationService.Console\bin\Debug\ESFA.DC.ILR.Model.Interface.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IIlrFileRule.cs" />
+    <Compile Include="IRule.cs" />
     <Compile Include="IValidationErrorHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,6 +4,6 @@ namespace DC.ILR.FileValidationService.Interfaces
 {
     public interface IValidationErrorHandler
     {
-        void Handle(string ruleName, string fileName, long? ukprn = null, IEnumerable<string> errorMessageParameters = null);
+        void Handle(string ruleName, string fileName, IEnumerable<string> errorMessageParameters = null);
     }
 }

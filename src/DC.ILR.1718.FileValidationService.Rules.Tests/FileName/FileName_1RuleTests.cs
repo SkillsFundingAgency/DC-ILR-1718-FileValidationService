@@ -1,5 +1,5 @@
 ﻿using DC.ILR.FileValidationService.Interfaces;
-using DC.ILR.FileValidationService.Model.Interfaces;
+using DC.ILR.FileValidationService.Model;
 using DC.ILR.FileValidationService.Rules.FileName;
 using DC.ILR.FileValidationService.Rules.Query;
 using FluentAssertions;
@@ -26,7 +26,7 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
         [InlineData("ILR-0000000-0000-20180128-100358-0.xml")]
         [InlineData("ILR-10000532-1718-XYZ-100358-10.xml")]
         [InlineData("ILR-11111111111.xml")]
-        public void ConditionMet_False(string fileName)
+        public void ConditionMet_True(string fileName)
         {
             var service = new Mock<IIlrFileNameQueryService>();
             service.Setup(x => x.IsValidFileName(fileName)).Returns(false);
@@ -37,7 +37,7 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
         [Theory]
         [InlineData("ILR-10000532-1718-20180128-100358-10.xml")]
         [InlineData("ILR-10000532-1718-20180128-100358-10.zip")]
-        public void ConditionMet_True(string fileName)
+        public void ConditionMet_False(string fileName)
         {
             var service = new Mock<IIlrFileNameQueryService>();
             service.Setup(x => x.IsValidFileName(fileName)).Returns(true);
@@ -48,11 +48,11 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
         [Fact]
         public void Validate_True()
         {
-            var ilrFile = new Mock<IIlrFile>();
-            ilrFile.Object.FileName = "ILR-10000532-1718-20180128-100358-10.xml";
+            var ilrFile = new IlrFileData();
+            ilrFile.FileName = "ILR-10000532-1718-20180128-100358-10.xml";
 
             var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Filename_1", null, null, null);
+            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Filename_1", null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var ilrFileNameQueryService = new Mock<IIlrFileNameQueryService>();
@@ -60,18 +60,18 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
 
             var rule = NewRule(validationErrorHandlerMock.Object, ilrFileNameQueryService.Object);
 
-            rule.Validate(ilrFile.Object);
+            rule.Validate(ilrFile);
             validationErrorHandlerMock.Verify(handle, Times.Never);
         }
 
         [Fact]
         public void Validate_False()
         {
-            var ilrFile = new Mock<IIlrFile>();
-            ilrFile.Object.FileName = "ILR-10000532-1718-20180128-100358-10.XYZ";
+            var ilrFile = new IlrFileData();
+            ilrFile.FileName = "ILR-10000532-1718-20180128-100358-10.XYZ";
 
             var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Filename_1", null, null, null);
+            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Filename_1", ilrFile.FileName, null);
             validationErrorHandlerMock.Setup(handle);
 
             var ilrFileNameQueryService = new Mock<IIlrFileNameQueryService>();
@@ -79,7 +79,7 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
 
             var rule = NewRule(validationErrorHandlerMock.Object, ilrFileNameQueryService.Object);
 
-            rule.Validate(ilrFile.Object);
+            rule.Validate(ilrFile);
             validationErrorHandlerMock.Verify(handle, Times.Once);
         }
     }

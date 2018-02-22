@@ -1,11 +1,12 @@
 ﻿using DC.ILR.FileValidationService.Interfaces;
-using DC.ILR.FileValidationService.Model.Interfaces;
+using DC.ILR.FileValidationService.Model;
+using DC.ILR.FileValidationService.Rules.AbstractRules;
 using DC.ILR.FileValidationService.Rules.Constants;
 using DC.ILR.FileValidationService.Rules.Query;
 
 namespace DC.ILR.FileValidationService.Rules.FileName
 {
-    public class FileName_5Rule : AbstractIlrFileRule
+    public class FileName_5Rule : AbstractRule, IRule<IlrFileData>
     {
         private readonly string _ruleName = "Filename_5";
         private readonly IIlrFileNameQueryService _fileNameQueryService;
@@ -16,11 +17,11 @@ namespace DC.ILR.FileValidationService.Rules.FileName
             _fileNameQueryService = fileNameQueryService;
         }
 
-        public override void Validate(IIlrFile fileToValidate)
+        public void Validate(IlrFileData fileToValidate)
         {
             if (ConditionMet(fileToValidate.FileName))
             {
-                HandleValidationError(_ruleName, fileToValidate.FileName, fileToValidate.Ukprn);
+                HandleValidationError(_ruleName, fileToValidate.FileName);
             }
         }
 
