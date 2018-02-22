@@ -1,9 +1,9 @@
 ﻿using System;
-using DC.ILR._1718.FileValidationService.Rules.Query;
+using DC.ILR.FileValidationService.Rules.Query;
 using FluentAssertions;
 using Xunit;
 
-namespace DC.ILR._1718.FileValidationService.Rules.Tests.Query
+namespace DC.ILR.FileValidationService.Rules.Tests.Query
 {
     public class IlrFileNameQueryServiceTests
     {

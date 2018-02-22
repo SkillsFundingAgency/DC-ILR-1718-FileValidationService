@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.ILR.1718.FileValidationService.Rules", "DC.ILR.1718.FileValidationService.Rules\DC.ILR.1718.FileValidationService.Rules.csproj", "{E3F5ADA0-9C25-400D-8057-BCA1C02DAF2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.ILR.FileValidationService.Rules", "DC.ILR.1718.FileValidationService.Rules\DC.ILR.FileValidationService.Rules.csproj", "{E3F5ADA0-9C25-400D-8057-BCA1C02DAF2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.ILR.1718.FileValidationService.Model.Interfaces", "DC.ILR.1718.FileValidationService.Model.Interface\DC.ILR.1718.FileValidationService.Model.Interfaces.csproj", "{C2CF184C-9285-4A5A-8617-A144D0BF749C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.ILR.FileValidationService.Model.Interfaces", "DC.ILR.1718.FileValidationService.Model.Interface\DC.ILR.FileValidationService.Model.Interfaces.csproj", "{C2CF184C-9285-4A5A-8617-A144D0BF749C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.ILR.1718.FileValidationService.Model", "DC.ILR.1718.FileValidationService.Model\DC.ILR.1718.FileValidationService.Model.csproj", "{A6668DA1-3B61-4F3E-9BB3-08CE81DD5DAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.ILR.FileValidationService.Model", "DC.ILR.1718.FileValidationService.Model\DC.ILR.FileValidationService.Model.csproj", "{A6668DA1-3B61-4F3E-9BB3-08CE81DD5DAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.ILR.1718.FileValidationService.Rules.Tests", "DC.ILR.1718.FileValidationService.Rules.Tests\DC.ILR.1718.FileValidationService.Rules.Tests.csproj", "{800B2934-E242-4F6E-9878-0E74B64D994D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.ILR.FileValidationService.Rules.Tests", "DC.ILR.1718.FileValidationService.Rules.Tests\DC.ILR.FileValidationService.Rules.Tests.csproj", "{800B2934-E242-4F6E-9878-0E74B64D994D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.ILR.1718.FileValidationService.Interfaces", "DC.ILR.1718.FileValidationService.Interfaces\DC.ILR.1718.FileValidationService.Interfaces.csproj", "{7E69C378-F1FD-4375-80AC-5C77413028DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.ILR.FileValidationService.Interfaces", "DC.ILR.1718.FileValidationService.Interfaces\DC.ILR.FileValidationService.Interfaces.csproj", "{7E69C378-F1FD-4375-80AC-5C77413028DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

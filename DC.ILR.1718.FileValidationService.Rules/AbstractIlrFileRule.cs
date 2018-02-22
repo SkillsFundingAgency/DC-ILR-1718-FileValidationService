@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DC.ILR._1718.FileValidationService.Interfaces;
-using DC.ILR._1718.FileValidationService.Model.Interfaces;
+﻿using System.Collections.Generic;
+using DC.ILR.FileValidationService.Interfaces;
+using DC.ILR.FileValidationService.Model.Interfaces;
 
-namespace DC.ILR._1718.FileValidationService.Rules
+namespace DC.ILR.FileValidationService.Rules
 {
     public abstract class AbstractIlrFileRule : IIlrFileRule
     {

@@ -1,4 +1,4 @@
-﻿namespace DC.ILR._1718.FileValidationService.Model.Interfaces
+﻿namespace DC.ILR.FileValidationService.Model.Interfaces
 {
     public interface IIlrFile
     {

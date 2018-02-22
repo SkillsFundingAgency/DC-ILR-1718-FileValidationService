@@ -1,15 +1,15 @@
-﻿using DC.ILR._1718.FileValidationService.Interfaces;
-using DC.ILR._1718.FileValidationService.Model.Interfaces;
-using DC.ILR._1718.FileValidationService.Rules.Query;
+﻿using DC.ILR.FileValidationService.Interfaces;
+using DC.ILR.FileValidationService.Model.Interfaces;
+using DC.ILR.FileValidationService.Rules.Query;
 
-namespace DC.ILR._1718.FileValidationService.Rules.FileName
+namespace DC.ILR.FileValidationService.Rules.FileName
 {
     public class FileName_1Rule : AbstractIlrFileRule
     {
         private readonly string _ruleName = "Filename_1";
-        private readonly IlrFileNameQueryService _fileNameQueryService;
+        private readonly IIlrFileNameQueryService _fileNameQueryService;
 
-        public FileName_1Rule(IValidationErrorHandler validationErrorHandler, IlrFileNameQueryService fileNameQueryService)
+        public FileName_1Rule(IValidationErrorHandler validationErrorHandler, IIlrFileNameQueryService fileNameQueryService)
             : base(validationErrorHandler)
         {
             _fileNameQueryService = fileNameQueryService;

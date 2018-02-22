@@ -1,11 +1,6 @@
-﻿using DC.ILR._1718.FileValidationService.Model.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DC.ILR.FileValidationService.Model.Interfaces;
 
-namespace DC.ILR._1718.FileValidationService.Interfaces
+namespace DC.ILR.FileValidationService.Interfaces
 {
     public interface IIlrFileRule
     {

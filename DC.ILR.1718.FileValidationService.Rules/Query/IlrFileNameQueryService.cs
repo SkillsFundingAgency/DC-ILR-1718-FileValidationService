@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using DC.ILR._1718.FileValidationService.Rules.Constants;
+using DC.ILR.FileValidationService.Rules.Constants;
 
-namespace DC.ILR._1718.FileValidationService.Rules.Query
+namespace DC.ILR.FileValidationService.Rules.Query
 {
     public class IlrFileNameQueryService : IIlrFileNameQueryService
     {

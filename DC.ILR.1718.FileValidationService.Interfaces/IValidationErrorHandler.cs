@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DC.ILR._1718.FileValidationService.Interfaces
+namespace DC.ILR.FileValidationService.Interfaces
 {
     public interface IValidationErrorHandler
     {

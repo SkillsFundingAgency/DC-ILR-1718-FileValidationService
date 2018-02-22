@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DC.ILR._1718.FileValidationService.Model
+﻿namespace DC.ILR.FileValidationService.Model
 {
     public class IlrFile
     {
