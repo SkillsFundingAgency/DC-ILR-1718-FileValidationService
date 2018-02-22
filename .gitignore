@@ -286,3 +286,6 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/src/DC.ILR.FileValidationService.Console/PrivateSettings.xml
+/src/scripts
+/src/setup.bat

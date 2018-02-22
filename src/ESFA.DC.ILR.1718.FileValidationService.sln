@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.ILR.FileValidationServic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.ILR.FileValidationService.Interfaces", "DC.ILR.1718.FileValidationService.Interfaces\DC.ILR.FileValidationService.Interfaces.csproj", "{7E69C378-F1FD-4375-80AC-5C77413028DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.ILR.FileValidationService.Console", "DC.ILR.FileValidationService.Console\DC.ILR.FileValidationService.Console.csproj", "{5F00D0AE-ACFB-4848-A4C4-E61B5658BAA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7E69C378-F1FD-4375-80AC-5C77413028DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E69C378-F1FD-4375-80AC-5C77413028DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E69C378-F1FD-4375-80AC-5C77413028DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F00D0AE-ACFB-4848-A4C4-E61B5658BAA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F00D0AE-ACFB-4848-A4C4-E61B5658BAA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F00D0AE-ACFB-4848-A4C4-E61B5658BAA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F00D0AE-ACFB-4848-A4C4-E61B5658BAA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
