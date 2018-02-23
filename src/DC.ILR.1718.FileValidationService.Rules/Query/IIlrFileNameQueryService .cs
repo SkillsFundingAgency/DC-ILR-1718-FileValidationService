@@ -6,12 +6,13 @@ namespace DC.ILR.FileValidationService.Rules.Query
     {
         string GetYearOfCollection(string fileName);
 
-        int? GetSerialNumber(string fileName);
+        string GetSerialNumber(string fileName);
 
         DateTime? GetFileDateTime(string fileName);
 
         bool IsValidFileName(string fileName);
 
         long GetUkprn(string fileName);
+        string GetFilePart(string fileName, int index);
     }
 }

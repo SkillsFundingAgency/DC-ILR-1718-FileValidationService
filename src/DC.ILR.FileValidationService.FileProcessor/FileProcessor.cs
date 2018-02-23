@@ -14,6 +14,7 @@ namespace DC.ILR.FileValidationService.FileProcessor
 
             using (var reader = XmlReader.Create(new StringReader(fileContent)))
             {
+
                 var serializer = new XmlSerializer(typeof(IMessage));
                 message = serializer.Deserialize(reader) as IMessage;
             }

@@ -53,6 +53,9 @@
     <Compile Include="Constants\IlrFileConstants.cs" />
     <Compile Include="Entity\Entity_1Rule.cs" />
     <Compile Include="FileName\FileName_1Rule.cs" />
+    <Compile Include="FileName\FileName_8Rule.cs" />
+    <Compile Include="FileName\FileName_7Rule.cs" />
+    <Compile Include="FileName\FileName_6Rule.cs" />
     <Compile Include="FileName\FileName_5Rule.cs" />
     <Compile Include="Header\Header_3Rule.cs" />
     <Compile Include="Header\Header_2Rule.cs" />

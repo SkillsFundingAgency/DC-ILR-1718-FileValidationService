@@ -81,6 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\Entity_1RuleTests.cs" />
+    <Compile Include="FileName\FileName_8RuleTests.cs" />
+    <Compile Include="FileName\FileName_7RuleTests.cs" />
+    <Compile Include="FileName\FileName_6RuleTests.cs" />
     <Compile Include="FileName\FileName_5RuleTests.cs" />
     <Compile Include="FileName\FileName_1RuleTests.cs" />
     <Compile Include="Header\Header_3RuleTests.cs" />
