@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using ESFA.DC.ILR.Model;
 
 namespace DC.ILR.FileValidationService.FileProcessor
 {
@@ -15,8 +16,9 @@ namespace DC.ILR.FileValidationService.FileProcessor
             using (var reader = XmlReader.Create(new StringReader(fileContent)))
             {
 
-                var serializer = new XmlSerializer(typeof(IMessage));
+                var serializer = new XmlSerializer(typeof(Message));
                 message = serializer.Deserialize(reader) as IMessage;
+                
             }
 
             return message;
