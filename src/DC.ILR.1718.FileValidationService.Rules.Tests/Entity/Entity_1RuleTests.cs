@@ -13,9 +13,9 @@ namespace DC.ILR.FileValidationService.Rules.Tests.Entity
 {
     public class Entity_1RuleTests
     {
-        public Entity_1Rule NewRule(IValidationErrorHandler validationErrorHandler = null)
+        public Entity1FileRule NewRule(IValidationFileErrorHandler validationFileErrorHandler = null)
         {
-            return new Entity_1Rule(validationErrorHandler);
+            return new Entity1FileRule(validationFileErrorHandler);
         }
 
         [Fact]
@@ -60,8 +60,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.Entity
         [Fact]
         public void Validate_True()
         {
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Entity_1", null, null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("Entity_1", null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var rule = NewRule(validationErrorHandlerMock.Object);
@@ -80,8 +80,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.Entity
         [Fact]
         public void Validate_False()
         {
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Entity_1", null, null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("Entity_1", null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var rule = NewRule(validationErrorHandlerMock.Object);

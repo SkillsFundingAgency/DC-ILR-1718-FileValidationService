@@ -52,17 +52,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractRules\AbstractRule.cs" />
+    <Compile Include="AbstractRules\AbstractCrossRecordRule.cs" />
+    <Compile Include="AbstractRules\AbstractFileRule.cs" />
     <Compile Include="Constants\IlrFileConstants.cs" />
-    <Compile Include="Entity\Entity_1Rule.cs" />
-    <Compile Include="FileName\FileName_1Rule.cs" />
-    <Compile Include="FileName\FileName_8Rule.cs" />
-    <Compile Include="FileName\FileName_7Rule.cs" />
-    <Compile Include="FileName\FileName_6Rule.cs" />
-    <Compile Include="FileName\FileName_5Rule.cs" />
-    <Compile Include="Header\Header_3Rule.cs" />
-    <Compile Include="Header\Header_2Rule.cs" />
-    <Compile Include="Namespace\NamespaceMismatch_Rule.cs" />
+    <Compile Include="CrossRecordRules\Learner\LearnerR06FileRule.cs" />
+    <Compile Include="CrossRecordRules\LearningDelivery\LearningDelivery_R29Rule.cs" />
+    <Compile Include="CrossRecordRules\LearningDelivery\LearningDelivery_R07Rule.cs" />
+    <Compile Include="Entity\Entity1FileRule.cs" />
+    <Compile Include="FileName\FileName1FileRule.cs" />
+    <Compile Include="FileName\FileName8FileRule.cs" />
+    <Compile Include="FileName\FileName7FileRule.cs" />
+    <Compile Include="FileName\FileName6FileRule.cs" />
+    <Compile Include="FileName\FileName5FileRule.cs" />
+    <Compile Include="Header\Header3FileRule.cs" />
+    <Compile Include="Header\Header2FileRule.cs" />
+    <Compile Include="Namespace\NamespaceMismatchFileRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\IlrFileNameQueryService.cs" />
     <Compile Include="Query\IIlrFileNameQueryService .cs" />

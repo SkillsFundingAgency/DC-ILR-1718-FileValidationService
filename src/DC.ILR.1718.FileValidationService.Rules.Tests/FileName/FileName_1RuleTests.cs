@@ -12,9 +12,9 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
 {
     public class FileName_1RuleTests
     {
-        public FileName_1Rule NewRule(IValidationErrorHandler validationErrorHandler = null, IIlrFileNameQueryService fileNameQueryService = null)
+        public FileName1FileRule NewRule(IValidationFileErrorHandler validationFileErrorHandler = null, IIlrFileNameQueryService fileNameQueryService = null)
         {
-            return new FileName_1Rule(validationErrorHandler, fileNameQueryService);
+            return new FileName1FileRule(validationFileErrorHandler, fileNameQueryService);
         }
 
         [Theory]
@@ -51,8 +51,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
             var ilrFile = new IlrFileData();
             ilrFile.FileName = "ILR-10000532-1718-20180128-100358-10.xml";
 
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Filename_1", null, null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("Filename_1", null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var ilrFileNameQueryService = new Mock<IIlrFileNameQueryService>();
@@ -70,8 +70,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
             var ilrFile = new IlrFileData();
             ilrFile.FileName = "ILR-10000532-1718-20180128-100358-10.XYZ";
 
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Filename_1", ilrFile.FileName, null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("Filename_1", ilrFile.FileName, null);
             validationErrorHandlerMock.Setup(handle);
 
             var ilrFileNameQueryService = new Mock<IIlrFileNameQueryService>();

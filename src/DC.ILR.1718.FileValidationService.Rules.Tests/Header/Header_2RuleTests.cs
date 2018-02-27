@@ -12,9 +12,9 @@ namespace DC.ILR.FileValidationService.Rules.Tests.Header
 {
     public class Header_2RuleTests
     {
-        public Header_2Rule NewRule(IValidationErrorHandler validationErrorHandler = null)
+        public Header2FileRule NewRule(IValidationFileErrorHandler validationFileErrorHandler = null)
         {
-            return new Header_2Rule(validationErrorHandler);
+            return new Header2FileRule(validationFileErrorHandler);
         }
 
         [Fact]
@@ -60,8 +60,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.Header
         [Fact]
         public void Validate_True()
         {
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Header_2", null, null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("Header_2", null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var rule = NewRule(validationErrorHandlerMock.Object);
@@ -86,8 +86,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.Header
         [Fact]
         public void Validate_False()
         {
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Header_2", null, null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("Header_2", null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var rule = NewRule(validationErrorHandlerMock.Object);

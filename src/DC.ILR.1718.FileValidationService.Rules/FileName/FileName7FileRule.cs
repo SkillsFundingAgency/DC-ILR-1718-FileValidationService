@@ -1,18 +1,17 @@
 ﻿using DC.ILR.FileValidationService.Interfaces;
 using DC.ILR.FileValidationService.Model;
 using DC.ILR.FileValidationService.Rules.AbstractRules;
-using DC.ILR.FileValidationService.Rules.Constants;
 using DC.ILR.FileValidationService.Rules.Query;
 
 namespace DC.ILR.FileValidationService.Rules.FileName
 {
-    public class FileName_5Rule : AbstractRule, IRule<IlrFileData>
+    public class FileName7FileRule : AbstractFileRule, IRule<IlrFileData>
     {
-        private readonly string _ruleName = "Filename_5";
+        private readonly string _ruleName = "Filename_7";
         private readonly IIlrFileNameQueryService _fileNameQueryService;
 
-        public FileName_5Rule(IValidationErrorHandler validationErrorHandler, IIlrFileNameQueryService fileNameQueryService)
-            : base(validationErrorHandler)
+        public FileName7FileRule(IValidationFileErrorHandler validationFileErrorHandler, IIlrFileNameQueryService fileNameQueryService)
+            : base(validationFileErrorHandler)
         {
             _fileNameQueryService = fileNameQueryService;
         }
@@ -27,7 +26,8 @@ namespace DC.ILR.FileValidationService.Rules.FileName
 
         public bool ConditionMet(string fileName)
         {
-            return _fileNameQueryService.GetYearOfCollection(fileName) != IlrFileConstants.AcademicYear;
+            var serialNumber = _fileNameQueryService.GetSerialNumber(fileName);
+            return string.IsNullOrEmpty(serialNumber) || serialNumber == "00";
         }
     }
 }

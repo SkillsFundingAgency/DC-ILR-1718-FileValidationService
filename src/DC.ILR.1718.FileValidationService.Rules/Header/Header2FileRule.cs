@@ -6,12 +6,12 @@ using System;
 
 namespace DC.ILR.FileValidationService.Rules.Header
 {
-    public class Header_2Rule : AbstractRule, IRule<IlrFileData>
+    public class Header2FileRule : AbstractFileRule, IRule<IlrFileData>
     {
         private readonly string _ruleName = "Header_2";
 
-        public Header_2Rule(IValidationErrorHandler validationErrorHandler)
-            : base(validationErrorHandler)
+        public Header2FileRule(IValidationFileErrorHandler validationFileErrorHandler)
+            : base(validationFileErrorHandler)
         {
         }
 

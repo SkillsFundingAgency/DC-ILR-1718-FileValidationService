@@ -13,9 +13,9 @@ namespace DC.ILR.FileValidationService.Rules.Tests.Header
 {
     public class Header_3RuleTests
     {
-        public Header_3Rule NewRule(IValidationErrorHandler validationErrorHandler = null, IIlrFileNameQueryService fileNameQueryService = null)
+        public Header3FileRule NewRule(IValidationFileErrorHandler validationFileErrorHandler = null, IIlrFileNameQueryService fileNameQueryService = null)
         {
-            return new Header_3Rule(validationErrorHandler,fileNameQueryService);
+            return new Header3FileRule(validationFileErrorHandler,fileNameQueryService);
         }
 
         [Fact]
@@ -41,8 +41,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.Header
         [Fact]
         public void Validate_True()
         {
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Header_3", null, null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("Header_3", null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var fileQueryServiceMock = new Mock<IIlrFileNameQueryService>();
@@ -60,8 +60,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.Header
         [Fact]
         public void Validate_False()
         {
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Header_3", "ILR-10000532-1718-20180128-100358-10.xml", null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("Header_3", "ILR-10000532-1718-20180128-100358-10.xml", null);
             validationErrorHandlerMock.Setup(handle);
 
             var fileQueryServiceMock = new Mock<IIlrFileNameQueryService>();

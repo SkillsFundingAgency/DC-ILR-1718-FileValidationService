@@ -5,13 +5,13 @@ using DC.ILR.FileValidationService.Rules.Constants;
 
 namespace DC.ILR.FileValidationService.Rules.Namespace
 {
-    public class NamespaceMismatch_Rule : AbstractRule, IRule<string>
+    public class NamespaceMismatchFileRule : AbstractFileRule, IRule<string>
     {
         private readonly string _ruleName = "NamespaceMismatch";
         private readonly Regex _nameSpaceRegex = new Regex(IlrFileConstants.NamespaceRegex, RegexOptions.Compiled);
 
-        public NamespaceMismatch_Rule(IValidationErrorHandler validationErrorHandler)
-            : base(validationErrorHandler)
+        public NamespaceMismatchFileRule(IValidationFileErrorHandler validationFileErrorHandler)
+            : base(validationFileErrorHandler)
         {
         }
 

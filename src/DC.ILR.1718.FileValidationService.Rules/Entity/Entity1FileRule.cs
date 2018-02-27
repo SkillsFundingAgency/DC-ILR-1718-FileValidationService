@@ -6,12 +6,12 @@ using System.Linq;
 
 namespace DC.ILR.FileValidationService.Rules.Entity
 {
-    public class Entity_1Rule : AbstractRule, IRule<IMessage>
+    public class Entity1FileRule : AbstractFileRule, IRule<IMessage>
     {
         private readonly string _ruleName = "Entity_1";
 
-        public Entity_1Rule(IValidationErrorHandler validationErrorHandler)
-            : base(validationErrorHandler)
+        public Entity1FileRule(IValidationFileErrorHandler validationFileErrorHandler)
+            : base(validationFileErrorHandler)
         {
         }
 

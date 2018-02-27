@@ -1,18 +1,18 @@
 ﻿using DC.ILR.FileValidationService.Interfaces;
 using DC.ILR.FileValidationService.Model;
 using DC.ILR.FileValidationService.Rules.AbstractRules;
+using DC.ILR.FileValidationService.Rules.Constants;
 using DC.ILR.FileValidationService.Rules.Query;
-using System;
 
 namespace DC.ILR.FileValidationService.Rules.FileName
 {
-    public class FileName_8Rule : AbstractRule, IRule<IlrFileData>
+    public class FileName5FileRule : AbstractFileRule, IRule<IlrFileData>
     {
-        private readonly string _ruleName = "Filename_8";
+        private readonly string _ruleName = "Filename_5";
         private readonly IIlrFileNameQueryService _fileNameQueryService;
 
-        public FileName_8Rule(IValidationErrorHandler validationErrorHandler, IIlrFileNameQueryService fileNameQueryService)
-            : base(validationErrorHandler)
+        public FileName5FileRule(IValidationFileErrorHandler validationFileErrorHandler, IIlrFileNameQueryService fileNameQueryService)
+            : base(validationFileErrorHandler)
         {
             _fileNameQueryService = fileNameQueryService;
         }
@@ -27,9 +27,7 @@ namespace DC.ILR.FileValidationService.Rules.FileName
 
         public bool ConditionMet(string fileName)
         {
-            var fileDateTime = _fileNameQueryService.GetFileDateTime(fileName);
-            return fileDateTime == null ||
-                   fileDateTime > DateTime.Now;
+            return _fileNameQueryService.GetYearOfCollection(fileName) != IlrFileConstants.AcademicYear;
         }
     }
 }

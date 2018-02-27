@@ -12,9 +12,9 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
 {
     public class FileName_8RuleTests
     {
-        public FileName_8Rule NewRule(IValidationErrorHandler validationErrorHandler = null, IIlrFileNameQueryService fileNameQueryService = null)
+        public FileName8FileRule NewRule(IValidationFileErrorHandler validationFileErrorHandler = null, IIlrFileNameQueryService fileNameQueryService = null)
         {
-            return new FileName_8Rule(validationErrorHandler, fileNameQueryService);
+            return new FileName8FileRule(validationFileErrorHandler, fileNameQueryService);
         }
 
         [Fact]
@@ -61,8 +61,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
                 FileName = $"ILR-10000532-1718-{DateTime.Now.ToString("yyyyMMdd", null)}-{DateTime.Now.ToString("HHmmss", null)}-10.xml"
             };
 
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Filename_8", null, null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("Filename_8", null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var ilrFileNameQueryService = new Mock<IIlrFileNameQueryService>();
@@ -82,8 +82,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
                 FileName = It.IsAny<string>()
             };
 
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Filename_8", null, null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("Filename_8", null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var ilrFileNameQueryService = new Mock<IIlrFileNameQueryService>();

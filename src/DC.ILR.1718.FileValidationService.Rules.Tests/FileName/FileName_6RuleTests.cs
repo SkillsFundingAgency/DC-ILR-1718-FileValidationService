@@ -12,9 +12,9 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
 {
     public class FileName_6RuleTests
     {
-        public FileName_6Rule NewRule(IValidationErrorHandler validationErrorHandler = null, IIlrFileNameQueryService fileNameQueryService = null)
+        public FileName6FileRule NewRule(IValidationFileErrorHandler validationFileErrorHandler = null, IIlrFileNameQueryService fileNameQueryService = null)
         {
-            return new FileName_6Rule(validationErrorHandler, fileNameQueryService);
+            return new FileName6FileRule(validationFileErrorHandler, fileNameQueryService);
         }
 
         [Theory]
@@ -49,8 +49,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
                 FileName = "ILR-10000532-1718-20180128-100358-10.xml"
             };
 
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Filename_6", null, null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("Filename_6", null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var ilrFileNameQueryService = new Mock<IIlrFileNameQueryService>();
@@ -70,8 +70,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.FileName
                 FileName = "ILR-10000532-1617-20180128-100358-100.xml"
             };
 
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("Filename_6", ilrFile.FileName, null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("Filename_6", ilrFile.FileName, null);
             validationErrorHandlerMock.Setup(handle);
 
             var ilrFileNameQueryService = new Mock<IIlrFileNameQueryService>();

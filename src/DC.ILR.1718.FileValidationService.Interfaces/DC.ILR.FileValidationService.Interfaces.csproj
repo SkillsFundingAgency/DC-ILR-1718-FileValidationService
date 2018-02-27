@@ -41,7 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRule.cs" />
-    <Compile Include="IValidationErrorHandler.cs" />
+    <Compile Include="IValidationCrossRecordErrorHandler.cs" />
+    <Compile Include="IValidationFileErrorHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

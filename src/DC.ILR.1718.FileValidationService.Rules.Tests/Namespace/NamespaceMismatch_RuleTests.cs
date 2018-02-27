@@ -10,9 +10,9 @@ namespace DC.ILR.FileValidationService.Rules.Tests.Namespace
 {
     public class NamespaceMismatch_RuleTests
     {
-        public NamespaceMismatch_Rule NewRule(IValidationErrorHandler validationErrorHandler = null)
+        public NamespaceMismatchFileRule NewRule(IValidationFileErrorHandler validationFileErrorHandler = null)
         {
-            return new NamespaceMismatch_Rule(validationErrorHandler);
+            return new NamespaceMismatchFileRule(validationFileErrorHandler);
         }
 
         [Theory]
@@ -37,8 +37,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.Namespace
         [Fact]
         public void Validate_True()
         {
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("NamespaceMismatch", null, null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("NamespaceMismatch", null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var rule = NewRule(validationErrorHandlerMock.Object);
@@ -50,8 +50,8 @@ namespace DC.ILR.FileValidationService.Rules.Tests.Namespace
         [Fact]
         public void Validate_False()
         {
-            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
-            Expression<Action<IValidationErrorHandler>> handle = veh => veh.Handle("NamespaceMismatch", null, null);
+            var validationErrorHandlerMock = new Mock<IValidationFileErrorHandler>();
+            Expression<Action<IValidationFileErrorHandler>> handle = veh => veh.Handle("NamespaceMismatch", null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var rule = NewRule(validationErrorHandlerMock.Object);

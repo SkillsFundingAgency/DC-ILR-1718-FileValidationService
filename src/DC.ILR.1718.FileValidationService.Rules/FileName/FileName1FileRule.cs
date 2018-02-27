@@ -5,13 +5,13 @@ using DC.ILR.FileValidationService.Rules.Query;
 
 namespace DC.ILR.FileValidationService.Rules.FileName
 {
-    public class FileName_1Rule : AbstractRule, IRule<IlrFileData>
+    public class FileName1FileRule : AbstractFileRule, IRule<IlrFileData>
     {
         private readonly string _ruleName = "Filename_1";
         private readonly IIlrFileNameQueryService _fileNameQueryService;
 
-        public FileName_1Rule(IValidationErrorHandler validationErrorHandler, IIlrFileNameQueryService fileNameQueryService)
-            : base(validationErrorHandler)
+        public FileName1FileRule(IValidationFileErrorHandler validationFileErrorHandler, IIlrFileNameQueryService fileNameQueryService)
+            : base(validationFileErrorHandler)
         {
             _fileNameQueryService = fileNameQueryService;
         }

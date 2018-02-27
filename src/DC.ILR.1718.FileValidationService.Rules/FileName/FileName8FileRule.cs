@@ -2,18 +2,17 @@
 using DC.ILR.FileValidationService.Model;
 using DC.ILR.FileValidationService.Rules.AbstractRules;
 using DC.ILR.FileValidationService.Rules.Query;
-using System.Text.RegularExpressions;
+using System;
 
 namespace DC.ILR.FileValidationService.Rules.FileName
 {
-    public class FileName_6Rule : AbstractRule, IRule<IlrFileData>
+    public class FileName8FileRule : AbstractFileRule, IRule<IlrFileData>
     {
-        private readonly string _ruleName = "Filename_6";
+        private readonly string _ruleName = "Filename_8";
         private readonly IIlrFileNameQueryService _fileNameQueryService;
-        private readonly Regex _serialNumberRegex = new Regex("^[0-9]{2}$", RegexOptions.Compiled);
 
-        public FileName_6Rule(IValidationErrorHandler validationErrorHandler, IIlrFileNameQueryService fileNameQueryService)
-            : base(validationErrorHandler)
+        public FileName8FileRule(IValidationFileErrorHandler validationFileErrorHandler, IIlrFileNameQueryService fileNameQueryService)
+            : base(validationFileErrorHandler)
         {
             _fileNameQueryService = fileNameQueryService;
         }
@@ -28,9 +27,9 @@ namespace DC.ILR.FileValidationService.Rules.FileName
 
         public bool ConditionMet(string fileName)
         {
-            var serialNumber = _fileNameQueryService.GetSerialNumber(fileName);
-            return string.IsNullOrEmpty(serialNumber) ||
-                   !_serialNumberRegex.IsMatch(serialNumber);
+            var fileDateTime = _fileNameQueryService.GetFileDateTime(fileName);
+            return fileDateTime == null ||
+                   fileDateTime > DateTime.Now;
         }
     }
 }

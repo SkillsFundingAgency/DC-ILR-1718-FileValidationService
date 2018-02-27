@@ -83,6 +83,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrossRecordRules\Learner\Learner_R06RuleTests.cs" />
+    <Compile Include="CrossRecordRules\LearningDelivery\LearningDelivery_R29RuleTests.cs" />
+    <Compile Include="CrossRecordRules\LearningDelivery\LearningDelivery_R07RuleTests.cs" />
     <Compile Include="Entity\Entity_1RuleTests.cs" />
     <Compile Include="FileName\FileName_8RuleTests.cs" />
     <Compile Include="FileName\FileName_7RuleTests.cs" />
