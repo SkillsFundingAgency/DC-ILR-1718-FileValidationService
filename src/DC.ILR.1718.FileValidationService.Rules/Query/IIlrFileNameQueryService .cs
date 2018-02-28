@@ -13,6 +13,7 @@ namespace DC.ILR.FileValidationService.Rules.Query
         bool IsValidFileName(string fileName);
 
         long GetUkprn(string fileName);
+
         string GetFilePart(string fileName, int index);
     }
 }

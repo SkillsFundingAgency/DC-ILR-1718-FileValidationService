@@ -1,7 +1,7 @@
 ﻿using DC.ILR.FileValidationService.Interfaces;
 using DC.ILR.FileValidationService.Rules.AbstractRules;
-using System.Text.RegularExpressions;
 using DC.ILR.FileValidationService.Rules.Constants;
+using System.Text.RegularExpressions;
 
 namespace DC.ILR.FileValidationService.Rules.Namespace
 {

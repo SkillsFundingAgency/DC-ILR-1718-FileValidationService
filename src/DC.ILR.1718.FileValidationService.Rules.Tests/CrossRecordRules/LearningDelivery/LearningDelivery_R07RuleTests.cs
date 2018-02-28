@@ -1,5 +1,4 @@
 ﻿using DC.ILR.FileValidationService.Interfaces;
-using DC.ILR.FileValidationService.Model;
 using DC.ILR.FileValidationService.Rules.CrossRecordRules.LearningDelivery;
 using ESFA.DC.ILR.Model.Interface;
 using ESFA.DC.ILR.Tests.Model;
@@ -36,14 +35,12 @@ namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDeli
             rule.ConditionMet(learner).Should().BeTrue();
         }
 
-
         [Fact]
         public void ConditionMet_False_Null()
         {
             var rule = NewRule(null);
             rule.ConditionMet(null).Should().BeFalse();
         }
-
 
         [Fact]
         public void ConditionMet_False_LearningDeliveryNull()
@@ -56,7 +53,6 @@ namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDeli
         [Fact]
         public void ConditionMet_False()
         {
-
             var learner = new TestLearner()
             {
                 LearnRefNumber = "Ref1",
@@ -66,9 +62,36 @@ namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDeli
                     new TestLearningDelivery() {AimSeqNumberNullable = 2}
                 }
             };
-            
+
             var rule = NewRule(null);
             rule.ConditionMet(learner).Should().BeFalse();
+        }
+
+        [Fact]
+        public void Validate_True_NullLearningDeliveries()
+        {
+            var learner = new TestLearner()
+            {
+            };
+            var validationErrorHandlerMock = new Mock<IValidationCrossRecordErrorHandler>();
+            Expression<Action<IValidationCrossRecordErrorHandler>> handle = veh => veh.Handle("LearningDelivery_R07", null, null, null);
+            validationErrorHandlerMock.Setup(handle);
+
+            var rule = NewRule(validationErrorHandlerMock.Object);
+            rule.Validate(learner);
+            validationErrorHandlerMock.Verify(handle, Times.Never);
+        }
+
+        [Fact]
+        public void Validate_True_NullLearner()
+        {
+            var validationErrorHandlerMock = new Mock<IValidationCrossRecordErrorHandler>();
+            Expression<Action<IValidationCrossRecordErrorHandler>> handle = veh => veh.Handle("LearningDelivery_R07", null, null, null);
+            validationErrorHandlerMock.Setup(handle);
+
+            var rule = NewRule(validationErrorHandlerMock.Object);
+            rule.Validate(null);
+            validationErrorHandlerMock.Verify(handle, Times.Never);
         }
 
         [Fact]
@@ -84,7 +107,7 @@ namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDeli
                 }
             };
             var validationErrorHandlerMock = new Mock<IValidationCrossRecordErrorHandler>();
-            Expression<Action<IValidationCrossRecordErrorHandler>> handle = veh => veh.Handle("LearningDelivery_R07", null,null,null);
+            Expression<Action<IValidationCrossRecordErrorHandler>> handle = veh => veh.Handle("LearningDelivery_R07", null, null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var rule = NewRule(validationErrorHandlerMock.Object);

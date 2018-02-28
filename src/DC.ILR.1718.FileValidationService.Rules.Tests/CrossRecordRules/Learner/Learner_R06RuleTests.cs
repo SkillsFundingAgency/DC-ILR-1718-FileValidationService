@@ -1,7 +1,6 @@
 ﻿using DC.ILR.FileValidationService.Interfaces;
 using DC.ILR.FileValidationService.Model;
 using DC.ILR.FileValidationService.Rules.CrossRecordRules.Learner;
-using DC.ILR.FileValidationService.Rules.Query;
 using ESFA.DC.ILR.Tests.Model;
 using FluentAssertions;
 using Moq;

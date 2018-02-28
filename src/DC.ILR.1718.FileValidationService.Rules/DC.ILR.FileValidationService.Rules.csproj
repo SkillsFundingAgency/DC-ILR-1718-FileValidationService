@@ -55,7 +55,10 @@
     <Compile Include="AbstractRules\AbstractCrossRecordRule.cs" />
     <Compile Include="AbstractRules\AbstractFileRule.cs" />
     <Compile Include="Constants\IlrFileConstants.cs" />
+    <Compile Include="CrossRecordRules\LearnerEmploymentStatus\LearnerEmploymentStatus_R43Rule.cs" />
     <Compile Include="CrossRecordRules\Learner\LearnerR06FileRule.cs" />
+    <Compile Include="CrossRecordRules\LearningDelivery\LearningDelivery_R31Rule.cs" />
+    <Compile Include="CrossRecordRules\LearningDelivery\LearningDelivery_R30Rule.cs" />
     <Compile Include="CrossRecordRules\LearningDelivery\LearningDelivery_R29Rule.cs" />
     <Compile Include="CrossRecordRules\LearningDelivery\LearningDelivery_R07Rule.cs" />
     <Compile Include="Entity\Entity1FileRule.cs" />

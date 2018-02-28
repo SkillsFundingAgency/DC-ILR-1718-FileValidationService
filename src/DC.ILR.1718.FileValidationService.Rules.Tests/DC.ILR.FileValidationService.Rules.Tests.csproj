@@ -83,7 +83,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrossRecordRules\LearnerEmploymentStatus\LearnerEmploymentStatus_R43RuleTests.cs" />
     <Compile Include="CrossRecordRules\Learner\Learner_R06RuleTests.cs" />
+    <Compile Include="CrossRecordRules\LearningDelivery\LearningDelivery_R31RuleTests.cs" />
+    <Compile Include="CrossRecordRules\LearningDelivery\LearningDelivery_R30RuleTests.cs" />
     <Compile Include="CrossRecordRules\LearningDelivery\LearningDelivery_R29RuleTests.cs" />
     <Compile Include="CrossRecordRules\LearningDelivery\LearningDelivery_R07RuleTests.cs" />
     <Compile Include="Entity\Entity_1RuleTests.cs" />

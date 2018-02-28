@@ -1,7 +1,6 @@
 ﻿using DC.ILR.FileValidationService.Interfaces;
 using DC.ILR.FileValidationService.Rules.AbstractRules;
 using ESFA.DC.ILR.Model.Interface;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace DC.ILR.FileValidationService.Rules.CrossRecordRules.LearningDelivery
@@ -24,12 +23,11 @@ namespace DC.ILR.FileValidationService.Rules.CrossRecordRules.LearningDelivery
             {
                 HandleValidationError(_ruleName, objectToValidate.LearnRefNumber);
             }
-            
         }
 
         public bool ConditionMet(ILearner learner)
         {
-            return learner ? .LearningDeliveries !=null &&
+            return learner?.LearningDeliveries != null &&
                    learner.LearningDeliveries.GroupBy(x => x.AimSeqNumberNullable)
                        .Any(y => y.Count() > 1);
         }

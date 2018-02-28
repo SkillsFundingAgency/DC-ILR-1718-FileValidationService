@@ -12,74 +12,37 @@ using Xunit;
 
 namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDelivery
 {
-    public class LearningDelivery_R29RuleTests
+    public class LearningDelivery_R31RuleTests
     {
-        public LearningDelivery_R29Rule NewRule(IValidationCrossRecordErrorHandler validationCrossRecordErrorHandler = null)
+        public LearningDelivery_R31Rule NewRule(IValidationCrossRecordErrorHandler validationCrossRecordErrorHandler = null)
         {
-            return new LearningDelivery_R29Rule(validationCrossRecordErrorHandler);
+            return new LearningDelivery_R31Rule(validationCrossRecordErrorHandler);
         }
 
-        [Theory]
-        [InlineData(null, null, null, 10)]
-        [InlineData(null, null, 10, null)]
-        [InlineData(null, 10, null, null)]
-        [InlineData(10, null, null, null)]
-        [InlineData(10, 20, 30, 40)]
-        [InlineData(null, null, null, null)]
-        [InlineData(10, 10, null, 10)]
-        [InlineData(null, null, 10, 10)]
-        [InlineData(10, 10, null, null)]
-        public void ConditionMet_True_ClosedMainAim(long? frameworkCode, long? pathwayCode, long? progType, long? standardCode)
-        {
-            var componentAimLearningDelivery = new TestLearningDelivery()
-            {
-                AimTypeNullable = 3,
-                FworkCodeNullable = frameworkCode,
-                ProgTypeNullable = progType,
-                StdCodeNullable = standardCode,
-                PwayCodeNullable = pathwayCode
-            };
-
-            var mainAimLearningDeliveries = new List<ILearningDelivery>()
-            {
-                new TestLearningDelivery()
-                {
-                    AimTypeNullable = 1,
-                    FworkCodeNullable = frameworkCode,
-                    ProgTypeNullable = progType,
-                    StdCodeNullable = standardCode,
-                    PwayCodeNullable = pathwayCode,
-                    LearnActEndDateNullable = new DateTime(2017,10,10)
-                }
-            };
-
-            var rule = NewRule(null);
-            rule.ConditionMet(componentAimLearningDelivery, mainAimLearningDeliveries).Should().BeTrue();
-        }
-
+       
         [Theory]
         [InlineData(null, 10)]
         [InlineData(10, null)]
         [InlineData(10, 20)]
         public void ConditionMet_True_OpenMainAim_NotMatchingStandard(long? componentStandardCode, long? mainAimStandardCode)
         {
-            var componentAimLearningDelivery = new TestLearningDelivery()
+            var mainAimLearningDelivery = new TestLearningDelivery()
             {
-                AimTypeNullable = 3,
-                StdCodeNullable = componentStandardCode
+                AimTypeNullable = 1,
+                StdCodeNullable = mainAimStandardCode
             };
 
-            var mainAimLearningDeliveries = new List<ILearningDelivery>()
+            var componentAimLearningDeliveries = new List<ILearningDelivery>()
             {
                 new TestLearningDelivery()
                 {
-                    AimTypeNullable = 1,
-                    StdCodeNullable = mainAimStandardCode
+                    AimTypeNullable = 3,
+                    StdCodeNullable = componentStandardCode
                 }
             };
 
             var rule = NewRule(null);
-            rule.ConditionMet(componentAimLearningDelivery, mainAimLearningDeliveries).Should().BeTrue();
+            rule.ConditionMet(mainAimLearningDelivery, componentAimLearningDeliveries).Should().BeTrue();
         }
 
         [Theory]
@@ -88,23 +51,23 @@ namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDeli
         [InlineData(10, 20)]
         public void ConditionMet_True_OpenMainAim_NotMatchingFramework(long? componentValue, long? mainAimValue)
         {
-            var componentAimLearningDelivery = new TestLearningDelivery()
+            var mainAimLearningDelivery = new TestLearningDelivery()
             {
-                AimTypeNullable = 3,
-                FworkCodeNullable = componentValue
+                AimTypeNullable = 1,
+                FworkCodeNullable = mainAimValue
             };
 
-            var mainAimLearningDeliveries = new List<ILearningDelivery>()
+            var componentAimLearningDeliveries = new List<ILearningDelivery>()
             {
                 new TestLearningDelivery()
                 {
-                    AimTypeNullable = 1,
-                    FworkCodeNullable = mainAimValue
+                    AimTypeNullable = 3,
+                    FworkCodeNullable = componentValue
                 }
             };
 
             var rule = NewRule(null);
-            rule.ConditionMet(componentAimLearningDelivery, mainAimLearningDeliveries).Should().BeTrue();
+            rule.ConditionMet(mainAimLearningDelivery, componentAimLearningDeliveries).Should().BeTrue();
         }
 
         [Theory]
@@ -113,23 +76,23 @@ namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDeli
         [InlineData(10, 20)]
         public void ConditionMet_True_OpenMainAim_NotMatchingPathway(long? componentValue, long? mainAimValue)
         {
-            var componentAimLearningDelivery = new TestLearningDelivery()
+            var mainAimLearningDelivery = new TestLearningDelivery()
             {
-                AimTypeNullable = 3,
-                PwayCodeNullable = componentValue
+                AimTypeNullable = 1,
+                PwayCodeNullable = mainAimValue
             };
 
-            var mainAimLearningDeliveries = new List<ILearningDelivery>()
+            var componentAimLearningDeliveries = new List<ILearningDelivery>()
             {
                 new TestLearningDelivery()
                 {
-                    AimTypeNullable = 1,
-                    PwayCodeNullable = mainAimValue
+                    AimTypeNullable = 3,
+                    PwayCodeNullable = componentValue
                 }
             };
 
             var rule = NewRule(null);
-            rule.ConditionMet(componentAimLearningDelivery, mainAimLearningDeliveries).Should().BeTrue();
+            rule.ConditionMet(mainAimLearningDelivery, componentAimLearningDeliveries).Should().BeTrue();
         }
 
         [Theory]
@@ -138,35 +101,35 @@ namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDeli
         [InlineData(10, 20)]
         public void ConditionMet_True_OpenMainAim_NotMatchingProgType(long? componentValue, long? mainAimValue)
         {
-            var componentAimLearningDelivery = new TestLearningDelivery()
+            var mainAimLearningDelivery = new TestLearningDelivery()
             {
-                AimTypeNullable = 3,
-                ProgTypeNullable = componentValue
+                AimTypeNullable = 1,
+                ProgTypeNullable = mainAimValue
             };
 
-            var mainAimLearningDeliveries = new List<ILearningDelivery>()
+            var componentAimLearningDeliveries = new List<ILearningDelivery>()
             {
                 new TestLearningDelivery()
                 {
-                    AimTypeNullable = 1,
-                    ProgTypeNullable = mainAimValue
+                    AimTypeNullable = 3,
+                    ProgTypeNullable = componentValue
                 }
             };
 
             var rule = NewRule(null);
-            rule.ConditionMet(componentAimLearningDelivery, mainAimLearningDeliveries).Should().BeTrue();
+            rule.ConditionMet(mainAimLearningDelivery, componentAimLearningDeliveries).Should().BeTrue();
         }
 
         [Fact]
-        public void ConditionMet_True_NoMainAimComponent()
+        public void ConditionMet_True_NoComponentAim()
         {
-            var componentAimLearningDelivery = new TestLearningDelivery()
+            var mainAimLearningDelivery = new TestLearningDelivery()
             {
-                AimTypeNullable = 3,
+                AimTypeNullable = 1,
                 StdCodeNullable = 20
             };
 
-            var mainAimLearningDeliveries = new List<ILearningDelivery>()
+            var componentAimLearningDeliveries = new List<ILearningDelivery>()
             {
                 new TestLearningDelivery()
                 {
@@ -176,56 +139,55 @@ namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDeli
             };
 
             var rule = NewRule(null);
-            rule.ConditionMet(componentAimLearningDelivery, mainAimLearningDeliveries).Should().BeTrue();
+            rule.ConditionMet(mainAimLearningDelivery, componentAimLearningDeliveries).Should().BeTrue();
         }
 
         [Fact]
         public void ConditionMet_False_MatchingAims()
         {
-            var componentAimLearningDelivery = new TestLearningDelivery()
+            var mainAimLearningDelivery = new TestLearningDelivery()
             {
-                AimTypeNullable = 3,
+                AimTypeNullable = 1,
                 StdCodeNullable = 20
             };
 
-            var mainAimLearningDeliveries = new List<ILearningDelivery>()
-            {
-                new TestLearningDelivery()
-                {
-                    AimTypeNullable = 1,
-                    StdCodeNullable = 20
-                }
-            };
-
-            var rule = NewRule(null);
-            rule.ConditionMet(componentAimLearningDelivery, mainAimLearningDeliveries).Should().BeFalse();
-        }
-
-        [Fact]
-        public void GetOpenComponentAims_ReturnValues()
-        {
             var componentAimLearningDeliveries = new List<ILearningDelivery>()
             {
                 new TestLearningDelivery()
                 {
                     AimTypeNullable = 3,
                     StdCodeNullable = 20
-                },
-                new TestLearningDelivery()
-                {
-                    AimTypeNullable = 3,
-                    StdCodeNullable = 120
-                },
-                new TestLearningDelivery()
-                {
-                    AimTypeNullable = 3,
-                    StdCodeNullable = 200,
-                    LearnActEndDateNullable = new DateTime(2018,10,10)
                 }
             };
 
             var rule = NewRule(null);
-            rule.GetOpenComponentAims(componentAimLearningDeliveries).Count().Should().Be(2);
+            rule.ConditionMet(mainAimLearningDelivery, componentAimLearningDeliveries).Should().BeFalse();
+        }
+
+        [Fact]
+        public void GetOpenMainAims_ReturnValues()
+        {
+            var componentAimLearningDeliveries = new List<ILearningDelivery>()
+            {
+                new TestLearningDelivery()
+                {
+                    AimTypeNullable = 1,
+                    StdCodeNullable = 20
+                },
+                new TestLearningDelivery()
+                {
+                    AimTypeNullable = 1,
+                    StdCodeNullable = 120
+                },
+                new TestLearningDelivery()
+                {
+                    AimTypeNullable = 1,
+                    StdCodeNullable = 200
+                }
+            };
+
+            var rule = NewRule(null);
+            rule.GetMainProgramAims(componentAimLearningDeliveries).Count().Should().Be(3);
         }
 
         [Fact]
@@ -235,25 +197,22 @@ namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDeli
             {
                 new TestLearningDelivery()
                 {
-                    AimTypeNullable = 1,
-                    StdCodeNullable = 20
+                    AimTypeNullable = 3
                 },
                 new TestLearningDelivery()
                 {
-                    AimTypeNullable = 3,
-                    StdCodeNullable = 120,
+                    AimTypeNullable = 1,
                     LearnActEndDateNullable = new DateTime(2018,10,10)
                 },
                 new TestLearningDelivery()
                 {
                     AimTypeNullable = 1,
-                    StdCodeNullable = 200,
                     LearnActEndDateNullable = new DateTime(2018,10,10)
                 }
             };
 
             var rule = NewRule(null);
-            rule.GetOpenComponentAims(componentAimLearningDeliveries).Count().Should().Be(0);
+            rule.GetMainProgramAims(componentAimLearningDeliveries).Count().Should().Be(0);
         }
 
         [Fact]
@@ -263,7 +222,7 @@ namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDeli
             {
             };
             var validationErrorHandlerMock = new Mock<IValidationCrossRecordErrorHandler>();
-            Expression<Action<IValidationCrossRecordErrorHandler>> handle = veh => veh.Handle("LearningDelivery_R29", null, null, null);
+            Expression<Action<IValidationCrossRecordErrorHandler>> handle = veh => veh.Handle("LearningDelivery_R31", null, null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var rule = NewRule(validationErrorHandlerMock.Object);
@@ -275,7 +234,7 @@ namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDeli
         public void Validate_True_NullLearner()
         {
             var validationErrorHandlerMock = new Mock<IValidationCrossRecordErrorHandler>();
-            Expression<Action<IValidationCrossRecordErrorHandler>> handle = veh => veh.Handle("LearningDelivery_R29", null, null, null);
+            Expression<Action<IValidationCrossRecordErrorHandler>> handle = veh => veh.Handle("LearningDelivery_R31", null, null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var rule = NewRule(validationErrorHandlerMock.Object);
@@ -296,7 +255,7 @@ namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDeli
                 }
             };
             var validationErrorHandlerMock = new Mock<IValidationCrossRecordErrorHandler>();
-            Expression<Action<IValidationCrossRecordErrorHandler>> handle = veh => veh.Handle("LearningDelivery_R29", null, null, null);
+            Expression<Action<IValidationCrossRecordErrorHandler>> handle = veh => veh.Handle("LearningDelivery_R31", null, null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var rule = NewRule(validationErrorHandlerMock.Object);
@@ -311,12 +270,12 @@ namespace DC.ILR.FileValidationService.Rules.Tests.CrossRecordRules.LearningDeli
             {
                 LearningDeliveries = new List<ILearningDelivery>()
                 {
-                    new TestLearningDelivery() { AimTypeNullable = 3, StdCodeNullable = 120},
-                    new TestLearningDelivery() {  AimTypeNullable = 1, StdCodeNullable = 120, LearnActEndDateNullable = new DateTime(2018,10,10)},
+                    new TestLearningDelivery() { AimTypeNullable = 1, StdCodeNullable = 120},
+                    new TestLearningDelivery() {  AimTypeNullable = 3, StdCodeNullable = 200},
                 }
             };
             var validationErrorHandlerMock = new Mock<IValidationCrossRecordErrorHandler>();
-            Expression<Action<IValidationCrossRecordErrorHandler>> handle = veh => veh.Handle("LearningDelivery_R29", null, null, null);
+            Expression<Action<IValidationCrossRecordErrorHandler>> handle = veh => veh.Handle("LearningDelivery_R31", null, null, null);
             validationErrorHandlerMock.Setup(handle);
 
             var rule = NewRule(validationErrorHandlerMock.Object);

@@ -14,7 +14,7 @@ namespace DC.ILR.FileValidationService.Rules.AbstractRules
 
         protected void HandleValidationError(string ruleName, string learnRefNumber = null, long? aimSequenceNumber = null, IEnumerable<string> errorMessageParameters = null)
         {
-            _validationErrorHandler.Handle(ruleName, learnRefNumber,aimSequenceNumber, errorMessageParameters);
+            _validationErrorHandler.Handle(ruleName, learnRefNumber, aimSequenceNumber, errorMessageParameters);
         }
     }
 }
